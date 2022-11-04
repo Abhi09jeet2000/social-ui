@@ -1,0 +1,23 @@
+.navbar_barcontent {
+  height: 6vh;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.navbar_logo {
+  margin-top: 1%;
+}
+
+.navbar_img {
+  margin: 15px 5px;
+}
+
+.navbar_searchbar {
+  height: 3.5vh;
+  width: 15vw;
+  margin-top: 10px;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  background-color: #fafafa;
+  border-radius: 5px;
+}

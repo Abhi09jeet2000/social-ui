@@ -1,0 +1,79 @@
+body {
+  background-color: #fafafa;
+}
+
+.loginpage_main {
+  display: flex;
+  margin-top: 25px;
+  /* margin-left: -65px; */
+  /* justify-content: center; */
+}
+
+.loginpage_logo {
+  width: 175px;
+  margin-top: 25px;
+}
+
+.loginpage_rightcomponent {
+  width: 350px;
+  padding-bottom: 5%;
+  border: 1px solid #dbdbdb;
+  margin-top: 25px;
+  text-align: center;
+  background-color: white;
+}
+
+.loginpage_signin {
+  margin-top: 25px;
+}
+
+.login_ordiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login_divider {
+  width: 80px;
+  height: 0;
+  border: 1px solid #dbdbdb;
+}
+
+.login_or {
+  margin: 0 20px;
+  font-weight: bold;
+  color: #bebebe;
+}
+
+.login_fb {
+  color: #395185;
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+.login_forgot {
+  color: rgba(var(--fe0, 0, 55, 107), 1);
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.loginpage_signupoption {
+  height: 10%;
+  /* padding: 5% 0; */
+  width: 350px;
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  margin-top: 8%;
+  text-align: center;
+}
+
+.loginpage_signup {
+  margin-top: 20px;
+}
+
+.loginpage_signin {
+  margin-top: 20px;
+}
