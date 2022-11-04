@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Post from '../Post/Post'
 
 import './MainPage.css'
 
@@ -10,7 +11,10 @@ class MainPage extends Component {
   render() {
     return (
       <div>
-        <div>MainPage</div>
+        <div>
+          <Post />
+          <Post />
+        </div>
       </div>
     )
   }

@@ -1,0 +1,30 @@
+.post_container {
+  width: 43vw;
+  /* height: 78vh; */
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  margin-top: 4%;
+}
+
+.post_header {
+  height: 7vh;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+}
+
+.post_image {
+  min-width: 30px;
+  min-height: 30px;
+  margin: 1.5%;
+}
+
+.post_username {
+  font-weight: bold;
+}
+
+.post-reactimage {
+  width: 3vw;
+  height: 3vh;
+  /* margin: 1%; */
+}

@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .statusbar_container::-webkit-scrollbar {
