@@ -70,7 +70,7 @@ class StatusBar extends Component {
       <div>
         <div className="statusbar_container">
           {this.state.statusList.map((item, index) => (
-            <div className="status">
+            <div className="status" key={item.username + index}>
               <Avatar className="statusbar_status" src={statusimg} />
               <div className="statusbar_text">{item.username}</div>
             </div>

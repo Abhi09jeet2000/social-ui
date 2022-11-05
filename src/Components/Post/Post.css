@@ -24,7 +24,20 @@
 }
 
 .post-reactimage {
-  width: 3vw;
+  width: 2vw;
   height: 3vh;
   /* margin: 1%; */
+}
+
+.post_comment {
+  margin: 1.5%;
+}
+
+.post_commentbox {
+  height: 7vh;
+  width: -webkit-fill-available;
+
+  border: 1px solid #dbdbdb;
+  font-size: 1em;
+  padding: 10px;
 }
