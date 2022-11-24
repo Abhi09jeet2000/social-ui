@@ -20,31 +20,37 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <div className="navbar_barcontent">
+        <div className="navbar__barContent">
           <Grid container>
-            <Grid item xs={2}></Grid>
+            <Grid item xs={2}>
+              {' '}
+            </Grid>
             <Grid item xs={3}>
-              <img className="navbar_logo" src={insta_logo} width="140vw" />
+              <img className="navbar_logo" src={insta_logo} width="105px" />
             </Grid>
             <Grid item xs={4}>
               <input
                 text="text"
-                className="navbar_searchbar"
+                className="navbar__searchBar"
                 placeholder="Search"
               />
             </Grid>
             <Grid item xs={3} style={{ display: 'flex' }}>
-              <img className="navbar_img" src={home} width="30vw" />
-              <img className="navbar_img" src={message} width="30vw" />
-              <img className="navbar_img" src={find} width="30vw" />
-              <img className="navbar_img" src={react} width="30vw" />
+              {/* <img className="navbar__img" src={home} width="25px" /> */}
+              {/* <img className="navbar__img" src={message} width="25px" /> */}
+              {/* <img className="navbar__img" src={find} width="25px" /> */}
+              {/* <img className="navbar__img" src={react} width="25px" /> */}
               <Avatar
-                className="navbar_img"
                 src={pp}
-                style={{ width: '27px', height: '27px' }}
+                className="navbar__img"
+                style={{
+                  maxWidth: '25px',
+                  maxHeight: '25px',
+                  justifyContent: 'center',
+                }}
               />
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={2}></Grid>
           </Grid>
         </div>
       </div>
@@ -53,3 +59,33 @@ class NavBar extends Component {
 }
 
 export default NavBar
+
+{
+  /* <div>
+        <div className="navbar_barcontent">
+          <div className="navbar_barcontent">
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              <img className="navbar_logo" src={insta_logo} alt="logo" />
+            </div>
+            <div>
+              <input
+                text="text"
+                className="navbar_searchbar"
+                placeholder="Search"
+              />
+            </div>
+            <div style={{ display: 'flex' }}>
+              <Avatar
+                className="navbar_img"
+                src={pp}
+                style={{ width: '27px', height: '27px' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div> */
+}

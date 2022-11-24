@@ -32,7 +32,7 @@ class LoginPage extends Component {
           <Grid item xs="auto">
             <div className="loginpage_main">
               <div>
-                <img src={insta_image} width="453px" />
+                <img src={insta_image} width="453px" className="instaimage" />
               </div>
               <div>
                 <div className="loginpage_rightcomponent">

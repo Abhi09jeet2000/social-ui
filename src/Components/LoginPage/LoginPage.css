@@ -77,3 +77,9 @@ body {
 .loginpage_signin {
   margin-top: 20px;
 }
+
+@media screen and (max-width: 900px) {
+  .instaimage {
+    display: none;
+  }
+}

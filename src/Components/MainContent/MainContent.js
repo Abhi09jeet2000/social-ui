@@ -17,19 +17,19 @@ class MainContent extends Component {
     return (
       <div>
         <div>
-          <Grid container>
-            <Grid item xs={2}></Grid>
-            <Grid item xs={6}>
+          <Grid container justifyContent="center">
+            {/* <Grid item xs={2}></Grid> */}
+            <Grid item xs="auto">
               <div>
                 <StatusBar />
                 <MainPage />
               </div>
             </Grid>
-            <Grid item xs={2}>
+            {/* <Grid item xs={2}>
               <InfoSection />
               <Suggestions />
-            </Grid>
-            <Grid item xs={2}></Grid>
+            </Grid> */}
+            {/* <Grid item xs={2}></Grid> */}
           </Grid>
         </div>
       </div>

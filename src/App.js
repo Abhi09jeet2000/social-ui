@@ -6,8 +6,12 @@ import LoginPage from './Components/LoginPage/LoginPage'
 function App() {
   return (
     <div className="App">
-      {/* <LoginPage /> */}
-      <Home />
+      {localStorage.getItem('users') == undefined ||
+      localStorage.getItem('users') == null ? (
+        <LoginPage />
+      ) : (
+        <Home />
+      )}
     </div>
   )
 }

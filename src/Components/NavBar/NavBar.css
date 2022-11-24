@@ -1,20 +1,17 @@
-.navbar_barcontent {
-  height: 6vh;
+.navbar__barContent {
+  height: 54px;
   background-color: white;
   border-bottom: 1px solid #dbdbdb;
 }
-
 .navbar_logo {
-  margin-top: 1%;
+  margin-top: 10px;
 }
-
-.navbar_img {
-  margin: 15px 5px;
+.navbar__img {
+  margin: 15px 10px;
 }
-
-.navbar_searchbar {
-  height: 3.5vh;
-  width: 15vw;
+.navbar__searchBar {
+  height: 30px;
+  width: 215px;
   margin-top: 10px;
   border: 1px solid #dbdbdb;
   text-align: center;
