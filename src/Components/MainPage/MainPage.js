@@ -148,7 +148,7 @@ class MainPage extends Component {
             id={item.postId}
             userName={item.userName}
             postImage={item.postPath}
-            likes={item.likes}
+            likes={item.likeCount}
           />
         ))}
       </div>

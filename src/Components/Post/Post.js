@@ -4,15 +4,48 @@ import React, { Component } from 'react'
 import './Post.css'
 
 import love from '../../images/love.svg'
-import comment from '../../images/comment.svg'
-import share from '../../images/share.svg'
+import like from '../../images/like.png'
+// import comment from '../../images/comment.svg'
+// import share from '../../images/share.svg'
 
 class Post extends Component {
   constructor(props) {
     super(props)
+    console.log(props)
     this.state = {
       commentList: [],
+      likered: false,
+      likes: props.likes,
     }
+  }
+  changeState = () => {
+    console.log(this.state.likered)
+    const thisContext = this
+    this.setState({ likered: !this.state.likered })
+    console.log(this.state.likered)
+    const requestOptions = {
+      method: 'PUT',
+      // mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    }
+
+    // if (thisContext.state.likered) {
+    console.log(1)
+    fetch(
+      `http://localhost:8080/post/` +
+        thisContext.props.id +
+        '/' +
+        !thisContext.state.likered,
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ likes: data.likeCount })
+        console.log(data)
+      })
+      .catch((err) => {})
   }
 
   getComments = () => {
@@ -117,13 +150,22 @@ class Post extends Component {
         </div>
         {/* Analytics */}
         <div>
-          <div style={{ marginLeft: '2%' }}>
-            <img src={love} className="post-reactimage" alt="love" />
+          <div
+            style={{ marginLeft: '50%', display: 'flex' }}
+            onClick={() => {
+              this.changeState()
+            }}
+          >
+            {this.state.likered ? (
+              <img src={like} className="post-reactimage" alt="love" />
+            ) : (
+              <img src={love} className="post-reactimage" alt="love" />
+            )}
             {/* <img src={comment} className="post-reactimage" alt="comment" /> */}
             {/* <img src={share} className="post-reactimage" alt="share" /> */}
-          </div>
-          <div style={{ fontWeight: 'bold', marginLeft: '4%' }}>
-            {this.props.likes}
+            <div style={{ fontWeight: 'bold', marginLeft: '4%' }}>
+              {this.state.likes}
+            </div>
           </div>
         </div>
         {/* Comment */}
