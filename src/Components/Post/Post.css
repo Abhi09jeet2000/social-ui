@@ -41,3 +41,15 @@
   font-size: 1em;
   padding: 10px;
 }
+
+@media screen and (max-width: 800px) {
+  .post_container {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .post_container {
+    width: 85vw;
+  }
+}

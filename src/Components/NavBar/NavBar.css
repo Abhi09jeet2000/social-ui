@@ -5,16 +5,36 @@
 }
 .navbar_logo {
   margin-top: 10px;
+  width: 25%;
+  margin-left: 40%;
 }
 .navbar__img {
   margin: 15px 10px;
+  margin-left: 40%;
 }
 .navbar__searchBar {
   height: 30px;
-  width: 215px;
+  width: 100%;
   margin-top: 10px;
   border: 1px solid #dbdbdb;
   text-align: center;
   background-color: #fafafa;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar_logo {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 610px) {
+  .navbar_logo {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .navbar_logo {
+    width: 70%;
+    margin-left: 10%;
+  }
 }

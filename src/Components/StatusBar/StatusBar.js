@@ -3,7 +3,7 @@ import { Avatar } from '@mui/material'
 
 import './StatusBar.css'
 
-import statusimg from '../../images/pp1.png'
+// import statusimg from '../../images/pp1.png'
 import uploadImage from '../../images/statusadd.png'
 
 import { app } from '../firebase'
@@ -112,6 +112,8 @@ class StatusBar extends Component {
           case 'running':
             console.log('Upload is running')
             break
+          default:
+            console.log('default')
         }
       },
       (error) => {
@@ -156,7 +158,7 @@ class StatusBar extends Component {
     return (
       <div>
         <div className="statusbar_container">
-          <div className="fileupload">
+          <div className="fileupload status">
             <label htmlFor="file-upload-status">
               <img
                 className="statusbar_status"
@@ -169,7 +171,7 @@ class StatusBar extends Component {
                   margin: '0 20px',
                 }}
               />
-              <div className="statusbar_text">New</div>
+              {/* <div className="statusbar_text">New</div> */}
             </label>
             <input
               id="file-upload-status"

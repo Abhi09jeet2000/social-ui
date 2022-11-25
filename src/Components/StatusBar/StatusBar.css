@@ -31,3 +31,21 @@
   overflow-x: hidden;
   text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+  .statusbar_container {
+    width: 60vw;
+  }
+  .fileupload {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .statusbar_text {
+    margin-left: 20%;
+  }
+  .statusbar_container {
+    width: 85vw;
+  }
+}

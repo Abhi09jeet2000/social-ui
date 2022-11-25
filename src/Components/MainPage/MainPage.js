@@ -72,6 +72,8 @@ class MainPage extends Component {
           case 'running':
             console.log('Upload is running')
             break
+          default:
+            console.log('default')
         }
       },
       (error) => {
@@ -124,7 +126,7 @@ class MainPage extends Component {
             textAlign: 'center',
             margin: '10px 0',
             border: '1px solid #dbdbdb',
-            width: '43vw',
+            width: 'auto',
             borderRadius: '5px',
           }}
         >
