@@ -32,6 +32,7 @@
 
 .post_comment {
   margin: 1.5%;
+  display: block;
 }
 
 .post_commentbox {

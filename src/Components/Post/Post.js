@@ -173,7 +173,18 @@ class Post extends Component {
           {this.state.commentList.map(
             (item, index) => (
               // index < 4 ? (
-              <div className="post_comment" key={item.commentId}>
+              <div
+                className="post_comment"
+                key={item.commentId}
+                style={{
+                  display: 'block',
+                  textAlign:
+                    item.userId ===
+                    JSON.parse(localStorage.getItem('users')).uid
+                      ? 'right'
+                      : 'left',
+                }}
+              >
                 {item.userName} : {item.comment}
               </div>
             ),
