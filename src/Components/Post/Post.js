@@ -11,7 +11,7 @@ import like from '../../images/like.png'
 class Post extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
+    // console.log(props)
     this.state = {
       commentList: [],
       likered: false,
@@ -19,10 +19,10 @@ class Post extends Component {
     }
   }
   changeState = () => {
-    console.log(this.state.likered)
+    // console.log(this.state.likered)
     const thisContext = this
     this.setState({ likered: !this.state.likered })
-    console.log(this.state.likered)
+    // console.log(this.state.likered)
     const requestOptions = {
       method: 'PUT',
       // mode: 'cors',
@@ -32,7 +32,7 @@ class Post extends Component {
     }
 
     // if (thisContext.state.likered) {
-    console.log(1)
+    // console.log(1)
     fetch(
       `http://localhost:8080/post/` +
         thisContext.props.id +
@@ -43,7 +43,7 @@ class Post extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ likes: data.likeCount })
-        console.log(data)
+        // console.log(data)
       })
       .catch((err) => {})
   }

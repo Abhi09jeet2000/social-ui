@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import './MainContent.css'
 
@@ -8,33 +8,31 @@ import MainPage from '../MainPage/MainPage'
 import InfoSection from '../InfoSection/InfoSection'
 import Suggestions from '../Suggestions/Suggestions'
 
-class MainContent extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-  render() {
-    return (
+function MainContent(props) {
+  return (
+    <div>
       <div>
-        <div>
-          <Grid container justifyContent="center">
-            {/* <Grid item xs={2}></Grid> */}
-            <Grid item xs="auto">
-              <div>
-                <StatusBar />
-                <MainPage />
-              </div>
-            </Grid>
-            {/* <Grid item xs={2}>
+        <Grid container justifyContent="center">
+          {/* <Grid item xs={2}></Grid> */}
+          <Grid item xs="auto">
+            <div>
+              <StatusBar />
+              <MainPage
+                postArray={props.postArray}
+                setPostArray={props.setPostArray}
+                getPost={props.getPost}
+              />
+            </div>
+          </Grid>
+          {/* <Grid item xs={2}>
               <InfoSection />
               <Suggestions />
             </Grid> */}
-            {/* <Grid item xs={2}></Grid> */}
-          </Grid>
-        </div>
+          {/* <Grid item xs={2}></Grid> */}
+        </Grid>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default MainContent

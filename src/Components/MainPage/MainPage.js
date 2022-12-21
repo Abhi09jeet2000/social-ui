@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import Post from '../Post/Post'
 
 import './MainPage.css'
@@ -15,45 +15,42 @@ import {
 } from 'firebase/storage'
 // import { v4 } from 'uuid'
 
-class MainPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      postArray: [],
-      progressBar: '',
-    }
-  }
-  getPost = () => {
-    const thisContext = this
-    // let data = [
-    //   {
-    //     postId: '1234456',
-    //     userName: 'user1',
-    //     postImageUrl: '../../images/post.jpg',
-    //     timeStamp: '123456',
-    //     likes: 1234,
-    //   },
-    // ]
-    const requestOptions = {
-      method: 'GET',
-      // mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    }
+function MainPage(props) {
+  // const [postArray, setPostArray] = useState([])
 
-    fetch('http://localhost:8080/post', requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        thisContext.setState({ postArray: data })
-      })
-      .catch((err) => {})
-  }
+  const [progressBar, setProgressBar] = useState('')
+  // console.log(props.searchValue)
 
-  upload = (event) => {
+  // const getPost = () => {
+  //   // let data = [
+  //   //   {
+  //   //     postId: '1234456',
+  //   //     userName: 'user1',
+  //   //     postImageUrl: '../../images/post.jpg',
+  //   //     timeStamp: '123456',
+  //   //     likes: 1234,
+  //   //   },
+  //   // ]
+  //   const requestOptions = {
+  //     method: 'GET',
+  //     // mode: 'cors',
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*',
+  //     },
+  //   }
+
+  //   fetch('http://localhost:8080/post', requestOptions)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       props.setPostArray(data)
+  //     })
+  //     .catch((err) => {})
+  // }
+
+  const upload = (event) => {
     let image = event.target.files[0]
     if (image === null || image === undefined) return
-    const thisContext = this
+
     const storage = getStorage(app)
     const storageRef = ref(storage, 'images/' + image.name)
     const uploadTask = uploadBytesResumable(storageRef, image)
@@ -63,7 +60,7 @@ class MainPage extends Component {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        thisContext.setState({ progressBar: progress })
+        setProgressBar(progress)
         console.log('Upload is ' + progress + '% done')
         switch (snapshot.state) {
           case 'paused':
@@ -106,7 +103,7 @@ class MainPage extends Component {
           fetch('http://localhost:8080/post', requestOptions)
             .then((response) => response.json())
             .then((data) => {
-              thisContext.getPost()
+              props.getPost()
             })
             .catch((err) => {})
         })
@@ -114,46 +111,44 @@ class MainPage extends Component {
     )
   }
 
-  componentDidMount() {
-    this.getPost()
-  }
+  // useEffect(() => {
+  //   getPost()
+  // }, [])
 
-  render() {
-    return (
-      <div>
-        <div
-          style={{
-            textAlign: 'center',
-            margin: '10px 0',
-            border: '1px solid #dbdbdb',
-            width: 'auto',
-            borderRadius: '5px',
-          }}
-        >
-          <div className="file-upload">
-            <label htmlFor="file-upload">
-              <img
-                className="mainpage_uploadicon"
-                src={uploadImage}
-                alt="uploadImage"
-              />
-            </label>
-            <input id="file-upload" type="file" onChange={this.upload} />
-          </div>
+  return (
+    <div>
+      <div
+        style={{
+          textAlign: 'center',
+          margin: '10px 0',
+          border: '1px solid #dbdbdb',
+          width: 'auto',
+          borderRadius: '5px',
+        }}
+      >
+        <div className="file-upload">
+          <label htmlFor="file-upload">
+            <img
+              className="mainpage_uploadicon"
+              src={uploadImage}
+              alt="uploadImage"
+            />
+          </label>
+          <input id="file-upload" type="file" onChange={upload} />
         </div>
-        <div className="upload_text">{this.state.progressBar}</div>
-        {this.state.postArray.map((item, index) => (
-          <Post
-            key={item.postId}
-            id={item.postId}
-            userName={item.userName}
-            postImage={item.postPath}
-            likes={item.likeCount}
-          />
-        ))}
       </div>
-    )
-  }
+      <div className="upload_text">{progressBar}</div>
+      {props.postArray.map((item, index) => (
+        <Post
+          key={item.postId}
+          id={item.postId}
+          userName={item.userName}
+          postImage={item.postPath}
+          likes={item.likeCount}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default MainPage
