@@ -23,7 +23,7 @@ class SignIn extends Component {
     ).then((response) => {
       // navigate('/home')
       const user = response.user
-      localStorage.setItem('users', user)
+      localStorage.setItem('users', JSON.stringify(user))
       window.location.reload()
       sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
     })
