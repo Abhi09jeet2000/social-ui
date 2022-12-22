@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Avatar } from '@mui/material'
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
 
 import './StatusBar.css'
 
@@ -14,15 +16,33 @@ import {
   getDownloadURL,
 } from 'firebase/storage'
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  color: 'white',
+  outline: 'none',
+  p: 4,
+  textAlign: 'center',
+}
 class StatusBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
       statusList: [],
+      open: false,
+      imgSrc: '',
     }
   }
   componentDidMount() {
     this.getData()
+  }
+
+  handleModal = (path) => {
+    console.log(path)
+    this.setState({ open: !this.state.open, imgSrc: path })
   }
 
   getData = () => {
@@ -181,9 +201,27 @@ class StatusBar extends Component {
           </div>
 
           {this.state.statusList.map((item, index) => (
-            <div className="status" key={item.userId}>
+            <div
+              className="status"
+              key={item.userId}
+              onClick={() => this.handleModal(item)}
+            >
               <Avatar className="statusbar_status" src={item.path} />
               <div className="statusbar_text">{item.userName}</div>
+              <Modal
+                open={this.state.open}
+                onClose={() => this.handleModal(item)}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <img
+                    src={this.state.imgSrc.path}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                  <h4>{this.state.imgSrc.userName}</h4>
+                </Box>
+              </Modal>
             </div>
           ))}
         </div>
