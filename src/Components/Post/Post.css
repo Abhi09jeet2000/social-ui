@@ -17,10 +17,13 @@
   min-width: 30px;
   min-height: 30px;
   margin: 1.5%;
+  border: 1px solid #dbdbdb;
 }
 
 .post_username {
+  font-size: larger;
   font-weight: bold;
+  font-family: 'Quantico';
 }
 
 .post-reactimage {
@@ -33,6 +36,7 @@
 .post_comment {
   margin: 1.5%;
   display: block;
+  /* font-family: 'Comfortaa'; */
 }
 
 .post_commentbox {
@@ -44,9 +48,16 @@
   padding: 10px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .post_container {
     width: 60vw;
+  }
+
+  .post-reactimage {
+    width: 5vw;
+    height: 4vh;
+    /* background-color: rgb(249, 0, 41); */
+    /* margin: 1%; */
   }
 }
 

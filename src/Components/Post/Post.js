@@ -14,6 +14,7 @@ class Post extends Component {
     // console.log(props)
     this.state = {
       commentList: [],
+      profile: null,
       likered: false,
       likes: props.likes,
     }
@@ -128,7 +129,31 @@ class Post extends Component {
     }
   }
 
+  getProfile = () => {
+    // console.log(this.props.userName)
+    const requestOptions = {
+      method: 'GET',
+      // mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    }
+    fetch(
+      'http://localhost:8080/users/username/' + this.props.userName,
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.profileImage)
+        // setProfile()
+        this.setState({ profile: data.profileImage })
+      })
+      .catch((err) => {})
+  }
+
   componentDidMount() {
+    this.getProfile()
+    // console.log('Here')
     this.getComments()
   }
 
@@ -137,7 +162,8 @@ class Post extends Component {
       <div className="post_container">
         {/* Header */}
         <div className="post_header">
-          <Avatar className="post_image" src={this.props.profileImage} />
+          <Avatar className="post_image" src={this.state.profile} />
+          &nbsp;&nbsp;
           <div className="post_username">{this.props.userName}</div>
         </div>
         {/* Image */}
